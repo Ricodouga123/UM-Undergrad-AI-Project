@@ -1,0 +1,15 @@
+image_id,biomarker,channel,cell_line,concentration,sample_group,pair_key,split,relative_path,filename
+4a0b2135383b,cd44,df,unknown,,CHANNEL01,cd44:CHANNEL01,val,images/cd44/DF01 (2).tif,DF01 (2).tif
+9af22afa21de,cd44,df,unknown,,CHANNEL01,cd44:CHANNEL01,val,images/cd44/DF01 (3).tif,DF01 (3).tif
+36845b1d62d0,cd44,df,unknown,,CHANNEL01,cd44:CHANNEL01,val,images/cd44/DF01 (4).tif,DF01 (4).tif
+b04fc0b5c6f5,cd44,df,unknown,,CHANNEL01,cd44:CHANNEL01,val,images/cd44/DF01 (5).tif,DF01 (5).tif
+fc8eca1ecc32,cd44,df,unknown,,CHANNEL01,cd44:CHANNEL01,val,images/cd44/DF01.tif,DF01.tif
+d11e9e12f44e,cd44,df,unknown,,CHANNEL02,cd44:CHANNEL02,train,images/cd44/DF02 (2).tif,DF02 (2).tif
+d1447c9ffa00,cd44,df,unknown,,CHANNEL02,cd44:CHANNEL02,train,images/cd44/DF02 (3).tif,DF02 (3).tif
+3699f4401486,cd44,df,unknown,,CHANNEL02,cd44:CHANNEL02,train,images/cd44/DF02 (4).tif,DF02 (4).tif
+650b8525efd5,cd44,df,unknown,,CHANNEL02,cd44:CHANNEL02,train,images/cd44/DF02 (5).tif,DF02 (5).tif
+3d1b9314b054,cd44,df,unknown,,CHANNEL02,cd44:CHANNEL02,train,images/cd44/DF02.tif,DF02.tif
+3a20892b76b9,cd44,df,unknown,,CHANNEL03,cd44:CHANNEL03,train,images/cd44/DF03 (2).tif,DF03 (2).tif
+e7e033509187,cd44,df,unknown,,CHANNEL03,cd44:CHANNEL03,train,images/cd44/DF03 (3).tif,DF03 (3).tif
+2c68c3a9fb93,cd44,df,unknown,,CHANNEL03,cd44:CHANNEL03,train,images/cd44/DF03 (4).tif,DF03 (4).tif
+b88d6ec02701,cd44,df,unknown,,CHANNEL03,cd44:CHANNEL03,train,images/cd44/DF03 (5).tif,DF03 (5).tif

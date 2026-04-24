@@ -1,0 +1,186 @@
+{
+  "project": "project_2",
+  "num_images": 14,
+  "splits": {
+    "val": {
+      "total": 5,
+      "df": 5,
+      "raman": 0
+    },
+    "train": {
+      "total": 9,
+      "df": 9,
+      "raman": 0
+    }
+  },
+  "rows": [
+    {
+      "image_id": "4a0b2135383b",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL01",
+      "pair_key": "cd44:CHANNEL01",
+      "split": "val",
+      "relative_path": "images/cd44/DF01 (2).tif",
+      "filename": "DF01 (2).tif"
+    },
+    {
+      "image_id": "9af22afa21de",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL01",
+      "pair_key": "cd44:CHANNEL01",
+      "split": "val",
+      "relative_path": "images/cd44/DF01 (3).tif",
+      "filename": "DF01 (3).tif"
+    },
+    {
+      "image_id": "36845b1d62d0",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL01",
+      "pair_key": "cd44:CHANNEL01",
+      "split": "val",
+      "relative_path": "images/cd44/DF01 (4).tif",
+      "filename": "DF01 (4).tif"
+    },
+    {
+      "image_id": "b04fc0b5c6f5",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL01",
+      "pair_key": "cd44:CHANNEL01",
+      "split": "val",
+      "relative_path": "images/cd44/DF01 (5).tif",
+      "filename": "DF01 (5).tif"
+    },
+    {
+      "image_id": "fc8eca1ecc32",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL01",
+      "pair_key": "cd44:CHANNEL01",
+      "split": "val",
+      "relative_path": "images/cd44/DF01.tif",
+      "filename": "DF01.tif"
+    },
+    {
+      "image_id": "d11e9e12f44e",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL02",
+      "pair_key": "cd44:CHANNEL02",
+      "split": "train",
+      "relative_path": "images/cd44/DF02 (2).tif",
+      "filename": "DF02 (2).tif"
+    },
+    {
+      "image_id": "d1447c9ffa00",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL02",
+      "pair_key": "cd44:CHANNEL02",
+      "split": "train",
+      "relative_path": "images/cd44/DF02 (3).tif",
+      "filename": "DF02 (3).tif"
+    },
+    {
+      "image_id": "3699f4401486",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL02",
+      "pair_key": "cd44:CHANNEL02",
+      "split": "train",
+      "relative_path": "images/cd44/DF02 (4).tif",
+      "filename": "DF02 (4).tif"
+    },
+    {
+      "image_id": "650b8525efd5",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL02",
+      "pair_key": "cd44:CHANNEL02",
+      "split": "train",
+      "relative_path": "images/cd44/DF02 (5).tif",
+      "filename": "DF02 (5).tif"
+    },
+    {
+      "image_id": "3d1b9314b054",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL02",
+      "pair_key": "cd44:CHANNEL02",
+      "split": "train",
+      "relative_path": "images/cd44/DF02.tif",
+      "filename": "DF02.tif"
+    },
+    {
+      "image_id": "3a20892b76b9",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL03",
+      "pair_key": "cd44:CHANNEL03",
+      "split": "train",
+      "relative_path": "images/cd44/DF03 (2).tif",
+      "filename": "DF03 (2).tif"
+    },
+    {
+      "image_id": "e7e033509187",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL03",
+      "pair_key": "cd44:CHANNEL03",
+      "split": "train",
+      "relative_path": "images/cd44/DF03 (3).tif",
+      "filename": "DF03 (3).tif"
+    },
+    {
+      "image_id": "2c68c3a9fb93",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL03",
+      "pair_key": "cd44:CHANNEL03",
+      "split": "train",
+      "relative_path": "images/cd44/DF03 (4).tif",
+      "filename": "DF03 (4).tif"
+    },
+    {
+      "image_id": "b88d6ec02701",
+      "biomarker": "cd44",
+      "channel": "df",
+      "cell_line": "unknown",
+      "concentration": "",
+      "sample_group": "CHANNEL03",
+      "pair_key": "cd44:CHANNEL03",
+      "split": "train",
+      "relative_path": "images/cd44/DF03 (5).tif",
+      "filename": "DF03 (5).tif"
+    }
+  ]
+}

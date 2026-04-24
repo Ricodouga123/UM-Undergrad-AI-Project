@@ -10,8 +10,16 @@ Then apply the model to real time camera feed, so that it can highlight face
 
 ## Project 2
 
-Don't have all the information yet so this is sort of like a placeholder.
+Microscopy training ground based on dual-imaging extracellular vesicle data.
 
-There will be pairs of imaged under influence of light in different frequencies. For the time being. Develope a model so it can find hotspots within the image.
+Students work with paired images:
+- `Raman` / fluorescence-style images to find all vesicles.
+- `DF` dark-field images to find brighter AuNP-positive vesicles.
 
-Additional detail will follow
+The current workflow for `project_2` is:
+- build a dataset manifest and deterministic train/val/test split
+- start with classical blob counting as a baseline
+- add ROI labeling for supervised learning
+- train a simple patch classifier or detector on labeled spots
+
+See [project_2/README.md](/C:/Users/ricod/Projects/UM-Undergrad-AI-Project/project_2/README.md) for details.
