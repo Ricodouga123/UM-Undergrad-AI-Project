@@ -28,15 +28,17 @@ import os
 import time
 import shutil
 import random
+from pathlib import Path
 
 # ── Configuration ─────────────────────────────────────────────────────────────
+PROJECT_DIR     = Path(__file__).resolve().parent
 CAMERA_INDEX   = 0
 SAMPLE_RATE    = 5    # Frames per second to save
 RECORD_SECONDS = 15   # Total recording time per phase
 TRAIN_SECONDS  = 10   # First N seconds -> train/
 VAL_SECONDS    = 5    # Remaining seconds -> val/
 COUNTDOWN      = 5    # Countdown before each phase
-DATA_ROOT      = os.path.join("project_1", "data")
+DATA_ROOT      = PROJECT_DIR / "data"
 # ──────────────────────────────────────────────────────────────────────────────
 
 

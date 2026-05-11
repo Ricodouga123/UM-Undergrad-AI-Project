@@ -18,6 +18,7 @@ Usage:
 """
 
 import os
+from pathlib import Path
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -25,8 +26,9 @@ from torch.utils.data import DataLoader
 from torchvision import datasets, transforms, models
 
 # ── Configuration ─────────────────────────────────────────────────────────────
-DATA_ROOT   = os.path.join("project_1", "data")
-MODEL_DIR   = os.path.join("project_1", "model")
+PROJECT_DIR = Path(__file__).resolve().parent
+MODEL_DIR   = PROJECT_DIR / "model"
+LEGACY_DATA_ROOT = PROJECT_DIR / "project_1" / "data"
 EPOCHS      = 15
 BATCH_SIZE  = 4
 LR          = 1e-3
@@ -35,6 +37,21 @@ NUM_WORKERS = 2
 # ──────────────────────────────────────────────────────────────────────────────
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+def count_jpgs(root: Path) -> int:
+    if not root.exists():
+        return 0
+    return sum(1 for path in root.rglob("*.jpg") if path.is_file())
+
+
+def resolve_data_root() -> Path:
+    candidates = [PROJECT_DIR / "data", LEGACY_DATA_ROOT]
+    ranked = sorted(candidates, key=count_jpgs, reverse=True)
+    best = ranked[0]
+    if count_jpgs(best) == 0:
+        return PROJECT_DIR / "data"
+    return best
 
 
 def get_transforms():
@@ -99,13 +116,15 @@ def main():
     print(f"  Device : {DEVICE}")
 
     os.makedirs(MODEL_DIR, exist_ok=True)
+    data_root = resolve_data_root()
+    print(f"  Data   : {data_root}")
 
     train_tf, val_tf = get_transforms()
 
     train_dataset = datasets.ImageFolder(
-        os.path.join(DATA_ROOT, "train"), transform=train_tf)
+        str(data_root / "train"), transform=train_tf)
     val_dataset   = datasets.ImageFolder(
-        os.path.join(DATA_ROOT, "val"),   transform=val_tf)
+        str(data_root / "val"),   transform=val_tf)
 
     class_names = train_dataset.classes
     print(f"  Classes : {class_names}")
@@ -137,11 +156,11 @@ def main():
         if val_acc > best_val_acc:
             best_val_acc = val_acc
             torch.save(model.state_dict(),
-                       os.path.join(MODEL_DIR, "best_model.pth"))
+                       MODEL_DIR / "best_model.pth")
             print(f"    -> New best model saved (val_acc={val_acc:.3f})")
 
     # Save class names so the GUI can load them
-    with open(os.path.join(MODEL_DIR, "class_names.txt"), "w") as f:
+    with open(MODEL_DIR / "class_names.txt", "w", encoding="utf-8") as f:
         f.write("\n".join(class_names))
 
     print("\n" + "=" * 55)

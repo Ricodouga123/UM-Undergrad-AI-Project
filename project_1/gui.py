@@ -19,13 +19,15 @@ import torch.nn as nn
 from torchvision import models, transforms
 import tkinter as tk
 from PIL import Image, ImageTk
+from pathlib import Path
 
 # ── Configuration ─────────────────────────────────────────────────────────────
+PROJECT_DIR          = Path(__file__).resolve().parent
+LEGACY_PROJECT_DIR   = PROJECT_DIR / "project_1"
 CAMERA_INDEX        = 0
-MODEL_PATH          = os.path.join("project_1", "model", "best_model.pth")
-CLASSES_PATH        = os.path.join("project_1", "model", "class_names.txt")
 IMG_SIZE            = 128
 HAAR_CASCADE        = cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
+FACE_CONTEXT_SCALE  = 2.5
 
 # If the model's top confidence is below this value the face is treated as
 # Unknown regardless of what class index won.  Tune between 0.55 – 0.80.
@@ -35,8 +37,26 @@ CONFIDENCE_THRESHOLD = 0.50
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
+def resolve_model_paths():
+    candidate_dirs = [PROJECT_DIR / "model", LEGACY_PROJECT_DIR / "model"]
+    best_pair = None
+    best_mtime = -1.0
+    for model_dir in candidate_dirs:
+        model_path = model_dir / "best_model.pth"
+        classes_path = model_dir / "class_names.txt"
+        if not model_path.exists() or not classes_path.exists():
+            continue
+        mtime = model_path.stat().st_mtime
+        if mtime > best_mtime:
+            best_pair = (model_path, classes_path)
+            best_mtime = mtime
+    if best_pair is not None:
+        return best_pair
+    return (PROJECT_DIR / "model" / "best_model.pth", PROJECT_DIR / "model" / "class_names.txt")
+
+
 def load_class_names(path):
-    with open(path, "r") as f:
+    with open(path, "r", encoding="utf-8") as f:
         names = [line.strip() for line in f.readlines() if line.strip()]
     print(f"  Loaded {len(names)} classes: {names}")
     # Sanity-check: warn if Unknown is missing
@@ -61,6 +81,19 @@ def get_transform():
         transforms.Normalize([0.485, 0.456, 0.406],
                              [0.229, 0.224, 0.225]),
     ])
+
+
+def expand_face_crop(frame_bgr, x, y, w, h, scale=FACE_CONTEXT_SCALE):
+    height, width = frame_bgr.shape[:2]
+    cx = x + (w / 2.0)
+    cy = y + (h / 2.0)
+    crop_w = w * scale
+    crop_h = h * scale
+    x0 = max(0, int(round(cx - (crop_w / 2.0))))
+    y0 = max(0, int(round(cy - (crop_h / 2.0))))
+    x1 = min(width, int(round(cx + (crop_w / 2.0))))
+    y1 = min(height, int(round(cy + (crop_h / 2.0))))
+    return frame_bgr[y0:y1, x0:x1], (x0, y0, x1, y1)
 
 
 def predict(model, transform, face_bgr, class_names):
@@ -139,7 +172,7 @@ class LiveGUI:
         status_parts = []
 
         for (x, y, w, h) in faces:
-            face_crop = frame[y:y+h, x:x+w]
+            face_crop, context_box = expand_face_crop(frame, x, y, w, h)
             if face_crop.size == 0:
                 continue
 
@@ -151,6 +184,8 @@ class LiveGUI:
             display  = label.replace("_", " ")
 
             cv2.rectangle(frame, (x, y), (x+w, y+h), color, 2)
+            x0, y0, x1, y1 = context_box
+            cv2.rectangle(frame, (x0, y0), (x1, y1), color, 1)
 
             text = f"{display}  {conf*100:.1f}%"
             tpos = (x, max(y - 10, 20))
@@ -180,15 +215,16 @@ class LiveGUI:
 
 
 def main():
-    for path in [MODEL_PATH, CLASSES_PATH]:
-        if not os.path.exists(path):
+    model_path, classes_path = resolve_model_paths()
+    for path in [model_path, classes_path]:
+        if not path.exists():
             print(f"ERROR: Missing file: {path}")
             print("Run train.py first.")
             sys.exit(1)
 
-    print(f"Loading model from {MODEL_PATH} ...")
-    class_names = load_class_names(CLASSES_PATH)
-    model       = load_model(MODEL_PATH, num_classes=len(class_names))
+    print(f"Loading model from {model_path} ...")
+    class_names = load_class_names(classes_path)
+    model       = load_model(model_path, num_classes=len(class_names))
     transform   = get_transform()
     print(f"  Device  : {DEVICE}")
     print(f"  Threshold: {CONFIDENCE_THRESHOLD}")
