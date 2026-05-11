@@ -1,12 +1,6 @@
 """
 Project 2 - Inference GUI
 =========================
-
-Interactive viewer for running the trained patch classifier on a selected
-image and drawing predicted spots.
-
-Usage:
-  python project_2/infer_gui.py
 """
 
 from __future__ import annotations
@@ -16,6 +10,13 @@ from pathlib import Path
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
+from core.image_analysis import (
+    centered_box,
+    compute_roi_metrics,
+    crop_box,
+    normalize_for_display,
+    render_roi_analysis_image,
+)
 from core.model_utils import load_patch_classifier
 
 
@@ -37,9 +38,9 @@ def import_or_explain():
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 MODEL_PATH = PROJECT_DIR / "model" / "patch_classifier.pt"
-LABELS_PATH = PROJECT_DIR / "model" / "labels.csv"
 CANVAS_MAX_W = 1000
 CANVAS_MAX_H = 720
+DEFAULT_ROI_SIZE = 32
 
 
 class InferenceApp:
@@ -59,10 +60,12 @@ class InferenceApp:
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model = None
         self.patch_size = None
-        self.current_image = None
+        self.current_image_raw = None
+        self.current_results = []
         self.current_path = None
         self.current_photo = None
         self.scale = 1.0
+        self.analysis_windows = []
 
         self.model_path_var = tk.StringVar(value=str(MODEL_PATH))
         self.image_path_var = tk.StringVar(value="")
@@ -72,15 +75,20 @@ class InferenceApp:
         self.min_distance_var = tk.IntVar(value=18)
         self.max_candidates_var = tk.IntVar(value=200)
         self.candidate_quantile_var = tk.DoubleVar(value=0.985)
-        self.box_size_var = tk.IntVar(value=64)
+        self.box_size_var = tk.IntVar(value=DEFAULT_ROI_SIZE)
+        self.contrast_var = tk.DoubleVar(value=1.0)
+        self.analysis_roi_size_var = tk.IntVar(value=DEFAULT_ROI_SIZE)
         self.show_all_var = tk.BooleanVar(value=False)
 
         root.title("Project 2 - Inference Viewer")
         root.configure(bg="#1f2329")
 
         tk.Label(
-            root, text="Project 2 Inference Viewer", font=("Helvetica", 16, "bold"),
-            fg="white", bg="#1f2329"
+            root,
+            text="Project 2 Inference Viewer",
+            font=("Helvetica", 16, "bold"),
+            fg="white",
+            bg="#1f2329",
         ).pack(pady=(10, 6))
 
         top = tk.Frame(root, bg="#1f2329")
@@ -104,7 +112,8 @@ class InferenceApp:
         self.add_spinbox(controls, "Min Distance", self.min_distance_var, 0, 2, 1, 1, 200)
         self.add_spinbox(controls, "Max Candidates", self.max_candidates_var, 0, 4, 10, 10, 1000)
         self.add_spinbox(controls, "Candidate Quantile", self.candidate_quantile_var, 1, 0, 0.001, 0.5, 0.999)
-        self.add_spinbox(controls, "Proposal Box", self.box_size_var, 1, 2, 2, 16, 256)
+        self.add_spinbox(controls, "Proposal Box", self.box_size_var, 1, 2, 2, 8, 256)
+        self.add_spinbox(controls, "Analyzer ROI", self.analysis_roi_size_var, 1, 4, 2, 8, 256)
         tk.Checkbutton(
             controls,
             text="Show negatives too",
@@ -114,12 +123,42 @@ class InferenceApp:
             selectcolor="#1f2329",
             activebackground="#1f2329",
             activeforeground="white",
-        ).grid(row=1, column=4, padx=10, sticky="w")
+            command=self.refresh_display,
+        ).grid(row=1, column=6, padx=10, sticky="w")
+
+        contrast_row = tk.Frame(root, bg="#1f2329")
+        contrast_row.pack(fill="x", padx=12, pady=(0, 8))
+        tk.Label(contrast_row, text="Contrast", fg="white", bg="#1f2329").pack(side="left", padx=(0, 6))
+        tk.Scale(
+            contrast_row,
+            from_=0.5,
+            to=3.0,
+            resolution=0.1,
+            orient=tk.HORIZONTAL,
+            variable=self.contrast_var,
+            command=lambda _value: self.refresh_display(),
+            bg="#1f2329",
+            fg="white",
+            highlightthickness=0,
+            length=220,
+        ).pack(side="left")
+        tk.Label(
+            contrast_row,
+            text="Right-click analyzes a centered ROI",
+            fg="#c9d1d9",
+            bg="#1f2329",
+            font=("Courier", 9),
+        ).pack(side="left", padx=(14, 4))
 
         self.canvas = tk.Canvas(
-            root, width=CANVAS_MAX_W, height=CANVAS_MAX_H, bg="black", highlightthickness=0
+            root,
+            width=CANVAS_MAX_W,
+            height=CANVAS_MAX_H,
+            bg="black",
+            highlightthickness=0,
         )
         self.canvas.pack(padx=12, pady=8)
+        self.canvas.bind("<Button-3>", self.on_analyze_click)
 
         tk.Label(root, textvariable=self.summary_var, font=("Courier", 10), fg="#c9d1d9", bg="#1f2329").pack()
         tk.Label(root, textvariable=self.status_var, font=("Courier", 10), fg="#58a6ff", bg="#1f2329").pack(pady=(2, 10))
@@ -164,7 +203,9 @@ class InferenceApp:
         import torch.nn as nn
 
         self.model, self.patch_size = load_patch_classifier(path, self.torch, nn, self.device)
-        self.summary_var.set(f"Loaded model: {path.name}    patch_size={self.patch_size}    device={self.device}")
+        self.summary_var.set(
+            f"Loaded model: {path.name}    patch_size={self.patch_size}    device={self.device}"
+        )
         self.status_var.set("Model ready.")
 
     def load_image(self, path: Path):
@@ -172,28 +213,21 @@ class InferenceApp:
             messagebox.showerror("Missing image", f"Image file not found:\n{path}")
             return
         self.current_path = path
-        self.current_image = self.tifffile.imread(path).astype("float32")
-        self.display_image(self.current_image, [])
+        self.current_image_raw = self.tifffile.imread(path).astype("float32")
+        self.current_results = []
+        self.refresh_display()
         self.status_var.set("Image loaded. Click Run to infer spots.")
 
-    def normalize_for_display(self, image):
-        image = image.astype("float32")
-        if image.ndim > 2:
-            image = image.squeeze()
-        min_val = float(image.min())
-        max_val = float(image.max())
-        if max_val > min_val:
-            image = (image - min_val) / (max_val - min_val)
-        else:
-            image = image * 0.0
-        return (image * 255.0).clip(0, 255).astype("uint8")
-
     def crop_patch(self, image, center_x, center_y, box_size):
-        half = box_size // 2
-        x0 = max(0, center_x - half)
-        y0 = max(0, center_y - half)
-        x1 = min(image.shape[1], center_x + half)
-        y1 = min(image.shape[0], center_y + half)
+        half = int(box_size) // 2
+        x0 = max(0, int(center_x) - half)
+        y0 = max(0, int(center_y) - half)
+        x1 = min(image.shape[1], x0 + int(box_size))
+        y1 = min(image.shape[0], y0 + int(box_size))
+        if x1 - x0 < int(box_size):
+            x0 = max(0, x1 - int(box_size))
+        if y1 - y0 < int(box_size):
+            y0 = max(0, y1 - int(box_size))
         patch = image[y0:y1, x0:x1]
         return patch, (x0, y0, x1, y1)
 
@@ -248,13 +282,15 @@ class InferenceApp:
             )
         return results
 
-    def display_image(self, image, results):
-        display = self.normalize_for_display(image)
+    def refresh_display(self):
+        if self.current_image_raw is None:
+            return
+        display = normalize_for_display(self.current_image_raw, self.np, self.contrast_var.get())
         pil_image = self.Image.fromarray(display).convert("RGB")
         draw = self.ImageDraw.Draw(pil_image)
 
         shown = []
-        for item in results:
+        for item in self.current_results:
             if item["label"] != "positive" and not self.show_all_var.get():
                 continue
             x0, y0, x1, y1 = item["box"]
@@ -274,10 +310,10 @@ class InferenceApp:
         self.canvas.delete("all")
         self.canvas.create_image(0, 0, anchor=tk.NW, image=self.current_photo)
 
-        positives = sum(1 for item in results if item["label"] == "positive")
-        negatives = sum(1 for item in results if item["label"] == "negative")
+        positives = sum(1 for item in self.current_results if item["label"] == "positive")
+        negatives = sum(1 for item in self.current_results if item["label"] == "negative")
         self.summary_var.set(
-            f"Candidates={len(results)}    positives={positives}    negatives={negatives}    shown={len(shown)}"
+            f"Candidates={len(self.current_results)}    positives={positives}    negatives={negatives}    shown={len(shown)}"
         )
 
     def run_inference(self):
@@ -292,13 +328,13 @@ class InferenceApp:
             if self.current_path != path:
                 self.load_image(path)
 
-        if self.current_image is None:
+        if self.current_image_raw is None:
             messagebox.showinfo("Choose image", "Pick an image first.")
             return
 
-        peaks = self.propose_candidates(self.current_image)
-        results = self.classify_candidates(self.current_image, peaks)
-        self.display_image(self.current_image, results)
+        peaks = self.propose_candidates(self.current_image_raw)
+        self.current_results = self.classify_candidates(self.current_image_raw, peaks)
+        self.refresh_display()
 
         csv_path = PROJECT_DIR / "model" / "last_inference.csv"
         with csv_path.open("w", encoding="utf-8", newline="") as handle:
@@ -307,7 +343,7 @@ class InferenceApp:
                 fieldnames=["center_x", "center_y", "positive_prob", "negative_prob", "label", "box"],
             )
             writer.writeheader()
-            for item in results:
+            for item in self.current_results:
                 writer.writerow(
                     {
                         "center_x": item["center_x"],
@@ -322,6 +358,62 @@ class InferenceApp:
         self.status_var.set(
             f"Finished inference on {self.current_path.name}. Results saved to {csv_path.name}."
         )
+
+    def canvas_to_image_coords(self, x, y):
+        return int(round(x / self.scale)), int(round(y / self.scale))
+
+    def show_roi_analysis(self, center_x: int, center_y: int):
+        box = centered_box(self.current_image_raw.shape, center_x, center_y, int(self.analysis_roi_size_var.get()))
+        roi = crop_box(self.current_image_raw, box)
+        metrics = compute_roi_metrics(roi, self.np)
+        plot_image = render_roi_analysis_image(roi, self.np)
+
+        window = tk.Toplevel(self.root)
+        window.title("ROI Analyzer")
+        window.configure(bg="#1f2329")
+        self.analysis_windows.append(window)
+
+        x0, y0, x1, y1 = box
+        tk.Label(
+            window,
+            text=(
+                f"ROI box: x={x0}, y={y0}, w={x1 - x0}, h={y1 - y0}\n"
+                "Note: Hounsfield Units are not relevant here; these are raw microscopy intensities."
+            ),
+            fg="white",
+            bg="#1f2329",
+            justify="left",
+        ).pack(anchor="w", padx=10, pady=(10, 6))
+
+        metrics_text = "\n".join(
+            [
+                f"shape={metrics['shape']}",
+                f"mean={metrics['mean']:.3f}",
+                f"median={metrics['median']:.3f}",
+                f"std={metrics['std']:.3f}",
+                f"min={metrics['min']:.3f}",
+                f"max={metrics['max']:.3f}",
+                f"sum={metrics['sum']:.3f}",
+                f"p05={metrics['p05']:.3f}",
+                f"p95={metrics['p95']:.3f}",
+                f"center_pixel={metrics['center_pixel']:.3f}",
+            ]
+        )
+        tk.Label(window, text=metrics_text, fg="#c9d1d9", bg="#1f2329", justify="left", font=("Courier", 10)).pack(
+            anchor="w", padx=10, pady=(0, 8)
+        )
+
+        plot_photo = self.ImageTk.PhotoImage(plot_image)
+        label = tk.Label(window, image=plot_photo, bg="#1f2329")
+        label.image = plot_photo
+        label.pack(padx=10, pady=(0, 10))
+
+    def on_analyze_click(self, event):
+        if self.current_image_raw is None:
+            return
+        x, y = self.canvas_to_image_coords(event.x, event.y)
+        self.show_roi_analysis(x, y)
+        self.status_var.set("Opened ROI analyzer for the clicked location.")
 
 
 def main():

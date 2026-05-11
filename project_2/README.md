@@ -103,6 +103,9 @@ By default it opens the CSV at [project_2/annotations/roi_tasks.csv](/C:/Users/r
 
 - drag a rectangle over a spot
 - click `Positive`, `Negative`, or `Uncertain`
+- use a contrast slider to make faint spots easier to see
+- right-click any location to analyze a centered ROI and view intensity metrics plus plots
+- save and adjust DF/non-DF image pairing choices inside the GUI
 - save the ROI directly back into the CSV
 - move with `Next` / `Previous`
 - switch `split`, `channel`, `biomarker`, and `unlabeled only` filters inside the GUI
@@ -131,6 +134,8 @@ The inference GUI lets you:
 - browse to a TIFF image
 - run candidate spot detection plus patch classification
 - overlay predicted positives on the image
+- adjust contrast interactively
+- right-click any location to open the ROI analyzer
 - adjust threshold and proposal settings interactively
 
 ## Dependencies

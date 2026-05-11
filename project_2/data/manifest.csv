@@ -1,15 +1,215 @@
 image_id,biomarker,channel,cell_line,concentration,sample_group,pair_key,split,relative_path,filename
-4a0b2135383b,cd44,df,unknown,,CHANNEL01,cd44:CHANNEL01,val,images/cd44/DF01 (2).tif,DF01 (2).tif
-9af22afa21de,cd44,df,unknown,,CHANNEL01,cd44:CHANNEL01,val,images/cd44/DF01 (3).tif,DF01 (3).tif
-36845b1d62d0,cd44,df,unknown,,CHANNEL01,cd44:CHANNEL01,val,images/cd44/DF01 (4).tif,DF01 (4).tif
-b04fc0b5c6f5,cd44,df,unknown,,CHANNEL01,cd44:CHANNEL01,val,images/cd44/DF01 (5).tif,DF01 (5).tif
+4a0b2135383b,cd44,df,unknown,,CHANNEL01 (2),cd44:CHANNEL01 (2),test,images/cd44/DF01 (2).tif,DF01 (2).tif
+9af22afa21de,cd44,df,unknown,,CHANNEL01 (3),cd44:CHANNEL01 (3),val,images/cd44/DF01 (3).tif,DF01 (3).tif
+36845b1d62d0,cd44,df,unknown,,CHANNEL01 (4),cd44:CHANNEL01 (4),test,images/cd44/DF01 (4).tif,DF01 (4).tif
+b04fc0b5c6f5,cd44,df,unknown,,CHANNEL01 (5),cd44:CHANNEL01 (5),test,images/cd44/DF01 (5).tif,DF01 (5).tif
 fc8eca1ecc32,cd44,df,unknown,,CHANNEL01,cd44:CHANNEL01,val,images/cd44/DF01.tif,DF01.tif
-d11e9e12f44e,cd44,df,unknown,,CHANNEL02,cd44:CHANNEL02,train,images/cd44/DF02 (2).tif,DF02 (2).tif
-d1447c9ffa00,cd44,df,unknown,,CHANNEL02,cd44:CHANNEL02,train,images/cd44/DF02 (3).tif,DF02 (3).tif
-3699f4401486,cd44,df,unknown,,CHANNEL02,cd44:CHANNEL02,train,images/cd44/DF02 (4).tif,DF02 (4).tif
-650b8525efd5,cd44,df,unknown,,CHANNEL02,cd44:CHANNEL02,train,images/cd44/DF02 (5).tif,DF02 (5).tif
+d11e9e12f44e,cd44,df,unknown,,CHANNEL02 (2),cd44:CHANNEL02 (2),train,images/cd44/DF02 (2).tif,DF02 (2).tif
+d1447c9ffa00,cd44,df,unknown,,CHANNEL02 (3),cd44:CHANNEL02 (3),train,images/cd44/DF02 (3).tif,DF02 (3).tif
+3699f4401486,cd44,df,unknown,,CHANNEL02 (4),cd44:CHANNEL02 (4),train,images/cd44/DF02 (4).tif,DF02 (4).tif
+650b8525efd5,cd44,df,unknown,,CHANNEL02 (5),cd44:CHANNEL02 (5),train,images/cd44/DF02 (5).tif,DF02 (5).tif
 3d1b9314b054,cd44,df,unknown,,CHANNEL02,cd44:CHANNEL02,train,images/cd44/DF02.tif,DF02.tif
-3a20892b76b9,cd44,df,unknown,,CHANNEL03,cd44:CHANNEL03,train,images/cd44/DF03 (2).tif,DF03 (2).tif
-e7e033509187,cd44,df,unknown,,CHANNEL03,cd44:CHANNEL03,train,images/cd44/DF03 (3).tif,DF03 (3).tif
-2c68c3a9fb93,cd44,df,unknown,,CHANNEL03,cd44:CHANNEL03,train,images/cd44/DF03 (4).tif,DF03 (4).tif
-b88d6ec02701,cd44,df,unknown,,CHANNEL03,cd44:CHANNEL03,train,images/cd44/DF03 (5).tif,DF03 (5).tif
+3a20892b76b9,cd44,df,unknown,,CHANNEL03 (2),cd44:CHANNEL03 (2),train,images/cd44/DF03 (2).tif,DF03 (2).tif
+e7e033509187,cd44,df,unknown,,CHANNEL03 (3),cd44:CHANNEL03 (3),val,images/cd44/DF03 (3).tif,DF03 (3).tif
+2c68c3a9fb93,cd44,df,unknown,,CHANNEL03 (4),cd44:CHANNEL03 (4),train,images/cd44/DF03 (4).tif,DF03 (4).tif
+b88d6ec02701,cd44,df,unknown,,CHANNEL03 (5),cd44:CHANNEL03 (5),train,images/cd44/DF03 (5).tif,DF03 (5).tif
+10635a866867,cd44,df,unknown,,CHANNEL03,cd44:CHANNEL03,train,images/cd44/DF03.tif,DF03.tif
+2eea5a0b2fe8,cd44,df,unknown,,CHANNEL04 (2),cd44:CHANNEL04 (2),train,images/cd44/DF04 (2).tif,DF04 (2).tif
+7896e5edf460,cd44,df,unknown,,CHANNEL04,cd44:CHANNEL04,val,images/cd44/DF04.tif,DF04.tif
+b3a2b7263688,cd44,df,MM231,,MM231_CD44_CHANNEL_01,cd44:MM231_CD44_CHANNEL_01,test,images/cd44/MM231_CD44_DF_01.tif,MM231_CD44_DF_01.tif
+070376784240,cd44,df,MM231,,MM231_CD44_CHANNEL_02,cd44:MM231_CD44_CHANNEL_02,train,images/cd44/MM231_CD44_DF_02.tif,MM231_CD44_DF_02.tif
+88e6c9651079,cd44,df,MM231,,MM231_CD44_CHANNEL_03,cd44:MM231_CD44_CHANNEL_03,test,images/cd44/MM231_CD44_DF_03.tif,MM231_CD44_DF_03.tif
+41b50235d81a,cd44,df,MM231,,MM231_CD44_CHANNEL_04,cd44:MM231_CD44_CHANNEL_04,val,images/cd44/MM231_CD44_DF_04.tif,MM231_CD44_DF_04.tif
+f200821af88a,cd44,raman,MM231,,MM231_CD44_CHANNEL_01,cd44:MM231_CD44_CHANNEL_01,test,images/cd44/MM231_CD44_Raman_01.tif,MM231_CD44_Raman_01.tif
+68ce108cdd5d,cd44,raman,MM231,,MM231_CD44_CHANNEL_02,cd44:MM231_CD44_CHANNEL_02,train,images/cd44/MM231_CD44_Raman_02.tif,MM231_CD44_Raman_02.tif
+1cb48e5365a1,cd44,raman,MM231,,MM231_CD44_CHANNEL_03,cd44:MM231_CD44_CHANNEL_03,test,images/cd44/MM231_CD44_Raman_03.tif,MM231_CD44_Raman_03.tif
+185a4d36b94f,cd44,raman,MM231,,MM231_CD44_CHANNEL_04,cd44:MM231_CD44_CHANNEL_04,val,images/cd44/MM231_CD44_Raman_04.tif,MM231_CD44_Raman_04.tif
+1730551c6982,cd44,raman,unknown,,CHANNEL01 (2),cd44:CHANNEL01 (2),test,images/cd44/R01 (2).tif,R01 (2).tif
+0a519a6a6c51,cd44,raman,unknown,,CHANNEL01 (3),cd44:CHANNEL01 (3),val,images/cd44/R01 (3).tif,R01 (3).tif
+d7d6852c50d7,cd44,raman,unknown,,CHANNEL01 (4),cd44:CHANNEL01 (4),test,images/cd44/R01 (4).tif,R01 (4).tif
+e5ce92fa7e2e,cd44,raman,unknown,,CHANNEL01 (5),cd44:CHANNEL01 (5),test,images/cd44/R01 (5).tif,R01 (5).tif
+692f269621ec,cd44,raman,unknown,,CHANNEL01,cd44:CHANNEL01,val,images/cd44/R01.tif,R01.tif
+d4473a994539,cd44,raman,unknown,,CHANNEL02 (2),cd44:CHANNEL02 (2),train,images/cd44/R02 (2).tif,R02 (2).tif
+59f4c0c534db,cd44,raman,unknown,,CHANNEL02 (3),cd44:CHANNEL02 (3),train,images/cd44/R02 (3).tif,R02 (3).tif
+d747774c5538,cd44,raman,unknown,,CHANNEL02 (4),cd44:CHANNEL02 (4),train,images/cd44/R02 (4).tif,R02 (4).tif
+2cf63f651bea,cd44,raman,unknown,,CHANNEL02 (5),cd44:CHANNEL02 (5),train,images/cd44/R02 (5).tif,R02 (5).tif
+a417c3feac9a,cd44,raman,unknown,,CHANNEL02,cd44:CHANNEL02,train,images/cd44/R02.tif,R02.tif
+eea8c9dc89e7,cd44,raman,unknown,,CHANNEL03 (2),cd44:CHANNEL03 (2),train,images/cd44/R03 (2).tif,R03 (2).tif
+79ff0a6e6ee1,cd44,raman,unknown,,CHANNEL03 (3),cd44:CHANNEL03 (3),val,images/cd44/R03 (3).tif,R03 (3).tif
+c375de0a0563,cd44,raman,unknown,,CHANNEL03 (4),cd44:CHANNEL03 (4),train,images/cd44/R03 (4).tif,R03 (4).tif
+71f41487c5f0,cd44,raman,unknown,,CHANNEL03 (5),cd44:CHANNEL03 (5),train,images/cd44/R03 (5).tif,R03 (5).tif
+bdcba0822abc,cd44,raman,unknown,,CHANNEL03,cd44:CHANNEL03,train,images/cd44/R03.tif,R03.tif
+37185d0748a1,cd44,raman,unknown,,CHANNEL04 (2),cd44:CHANNEL04 (2),train,images/cd44/R04 (2).tif,R04 (2).tif
+c36b622a9932,cd44,raman,unknown,,CHANNEL04,cd44:CHANNEL04,val,images/cd44/R04.tif,R04.tif
+d810f4aeabcb,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_01 (2),cd44:SKBR3_CD44_CHANNEL_01 (2),train,images/cd44/SKBR3_CD44_DF_01 (2).tif,SKBR3_CD44_DF_01 (2).tif
+47a7d0f576bc,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_01 (3),cd44:SKBR3_CD44_CHANNEL_01 (3),val,images/cd44/SKBR3_CD44_DF_01 (3).tif,SKBR3_CD44_DF_01 (3).tif
+edfb1f91274f,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_01,cd44:SKBR3_CD44_CHANNEL_01,val,images/cd44/SKBR3_CD44_DF_01.tif,SKBR3_CD44_DF_01.tif
+c9b75f7f84b1,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_02 (2),cd44:SKBR3_CD44_CHANNEL_02 (2),train,images/cd44/SKBR3_CD44_DF_02 (2).tif,SKBR3_CD44_DF_02 (2).tif
+19a777772980,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_02 (3),cd44:SKBR3_CD44_CHANNEL_02 (3),train,images/cd44/SKBR3_CD44_DF_02 (3).tif,SKBR3_CD44_DF_02 (3).tif
+70b25b55a753,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_02,cd44:SKBR3_CD44_CHANNEL_02,train,images/cd44/SKBR3_CD44_DF_02.tif,SKBR3_CD44_DF_02.tif
+fd107b0d18c1,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_03 (2),cd44:SKBR3_CD44_CHANNEL_03 (2),train,images/cd44/SKBR3_CD44_DF_03 (2).tif,SKBR3_CD44_DF_03 (2).tif
+801fc8b5f14a,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_03 (3),cd44:SKBR3_CD44_CHANNEL_03 (3),train,images/cd44/SKBR3_CD44_DF_03 (3).tif,SKBR3_CD44_DF_03 (3).tif
+06740cafab61,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_03,cd44:SKBR3_CD44_CHANNEL_03,train,images/cd44/SKBR3_CD44_DF_03.tif,SKBR3_CD44_DF_03.tif
+39210ade3d6e,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_04 (2),cd44:SKBR3_CD44_CHANNEL_04 (2),test,images/cd44/SKBR3_CD44_DF_04 (2).tif,SKBR3_CD44_DF_04 (2).tif
+7cb26f69c135,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_04 (3),cd44:SKBR3_CD44_CHANNEL_04 (3),train,images/cd44/SKBR3_CD44_DF_04 (3).tif,SKBR3_CD44_DF_04 (3).tif
+49f8ba3ed886,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_04,cd44:SKBR3_CD44_CHANNEL_04,train,images/cd44/SKBR3_CD44_DF_04.tif,SKBR3_CD44_DF_04.tif
+a26d835e289d,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_05 (2),cd44:SKBR3_CD44_CHANNEL_05 (2),train,images/cd44/SKBR3_CD44_DF_05 (2).tif,SKBR3_CD44_DF_05 (2).tif
+74d905908ce3,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_05 (3),cd44:SKBR3_CD44_CHANNEL_05 (3),test,images/cd44/SKBR3_CD44_DF_05 (3).tif,SKBR3_CD44_DF_05 (3).tif
+9a216978ce8c,cd44,df,SKBR3,,SKBR3_CD44_CHANNEL_05,cd44:SKBR3_CD44_CHANNEL_05,test,images/cd44/SKBR3_CD44_DF_05.tif,SKBR3_CD44_DF_05.tif
+012e6e87eb29,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_01 (2),cd44:SKBR3_CD44_CHANNEL_01 (2),train,images/cd44/SKBR3_CD44_Raman_01 (2).tif,SKBR3_CD44_Raman_01 (2).tif
+3599c4425982,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_01 (3),cd44:SKBR3_CD44_CHANNEL_01 (3),val,images/cd44/SKBR3_CD44_Raman_01 (3).tif,SKBR3_CD44_Raman_01 (3).tif
+cb102abe54d5,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_01,cd44:SKBR3_CD44_CHANNEL_01,val,images/cd44/SKBR3_CD44_Raman_01.tif,SKBR3_CD44_Raman_01.tif
+d66628ebbddf,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_02 (2),cd44:SKBR3_CD44_CHANNEL_02 (2),train,images/cd44/SKBR3_CD44_Raman_02 (2).tif,SKBR3_CD44_Raman_02 (2).tif
+dcbd9e899320,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_02 (3),cd44:SKBR3_CD44_CHANNEL_02 (3),train,images/cd44/SKBR3_CD44_Raman_02 (3).tif,SKBR3_CD44_Raman_02 (3).tif
+4c1829aa8ed2,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_02,cd44:SKBR3_CD44_CHANNEL_02,train,images/cd44/SKBR3_CD44_Raman_02.tif,SKBR3_CD44_Raman_02.tif
+0d4921302558,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_03 (2),cd44:SKBR3_CD44_CHANNEL_03 (2),train,images/cd44/SKBR3_CD44_Raman_03 (2).tif,SKBR3_CD44_Raman_03 (2).tif
+9cf852e1ff5c,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_03 (3),cd44:SKBR3_CD44_CHANNEL_03 (3),train,images/cd44/SKBR3_CD44_Raman_03 (3).tif,SKBR3_CD44_Raman_03 (3).tif
+858283478a89,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_03,cd44:SKBR3_CD44_CHANNEL_03,train,images/cd44/SKBR3_CD44_Raman_03.tif,SKBR3_CD44_Raman_03.tif
+43acec78ce99,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_04 (2),cd44:SKBR3_CD44_CHANNEL_04 (2),test,images/cd44/SKBR3_CD44_Raman_04 (2).tif,SKBR3_CD44_Raman_04 (2).tif
+ffaea2fa0ea7,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_04 (3),cd44:SKBR3_CD44_CHANNEL_04 (3),train,images/cd44/SKBR3_CD44_Raman_04 (3).tif,SKBR3_CD44_Raman_04 (3).tif
+24efe085715f,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_04,cd44:SKBR3_CD44_CHANNEL_04,train,images/cd44/SKBR3_CD44_Raman_04.tif,SKBR3_CD44_Raman_04.tif
+185b161b1e88,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_05 (2),cd44:SKBR3_CD44_CHANNEL_05 (2),train,images/cd44/SKBR3_CD44_Raman_05 (2).tif,SKBR3_CD44_Raman_05 (2).tif
+461b192b40d9,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_05 (3),cd44:SKBR3_CD44_CHANNEL_05 (3),test,images/cd44/SKBR3_CD44_Raman_05 (3).tif,SKBR3_CD44_Raman_05 (3).tif
+0b30aab9111f,cd44,raman,SKBR3,,SKBR3_CD44_CHANNEL_05,cd44:SKBR3_CD44_CHANNEL_05,test,images/cd44/SKBR3_CD44_Raman_05.tif,SKBR3_CD44_Raman_05.tif
+d11f2af68c60,epcam,df,unknown,,CHANNEL01 (2),epcam:CHANNEL01 (2),val,images/epcam/DF01 (2).tif,DF01 (2).tif
+1c7d8e797873,epcam,df,unknown,,CHANNEL01 (3),epcam:CHANNEL01 (3),train,images/epcam/DF01 (3).tif,DF01 (3).tif
+4336694d7765,epcam,df,unknown,,CHANNEL01 (4),epcam:CHANNEL01 (4),train,images/epcam/DF01 (4).tif,DF01 (4).tif
+53ac95d2ce7a,epcam,df,unknown,,CHANNEL01,epcam:CHANNEL01,test,images/epcam/DF01.tif,DF01.tif
+cb686b3e4650,epcam,df,unknown,,CHANNEL02 (2),epcam:CHANNEL02 (2),train,images/epcam/DF02 (2).tif,DF02 (2).tif
+15cf10e4effb,epcam,df,unknown,,CHANNEL02 (3),epcam:CHANNEL02 (3),train,images/epcam/DF02 (3).tif,DF02 (3).tif
+a29bee971f45,epcam,df,unknown,,CHANNEL02 (4),epcam:CHANNEL02 (4),train,images/epcam/DF02 (4).tif,DF02 (4).tif
+d376d420e3fb,epcam,df,unknown,,CHANNEL02,epcam:CHANNEL02,train,images/epcam/DF02.tif,DF02.tif
+bdefce4c552a,epcam,df,unknown,,CHANNEL03 (2),epcam:CHANNEL03 (2),val,images/epcam/DF03 (2).tif,DF03 (2).tif
+e3f36e48fec2,epcam,df,unknown,,CHANNEL03 (3),epcam:CHANNEL03 (3),val,images/epcam/DF03 (3).tif,DF03 (3).tif
+17e748bb4819,epcam,df,unknown,,CHANNEL03 (4),epcam:CHANNEL03 (4),train,images/epcam/DF03 (4).tif,DF03 (4).tif
+a8d2d5272294,epcam,df,unknown,,CHANNEL03,epcam:CHANNEL03,train,images/epcam/DF03.tif,DF03.tif
+630da478973c,epcam,df,unknown,,CHANNEL04 (2),epcam:CHANNEL04 (2),train,images/epcam/DF04 (2).tif,DF04 (2).tif
+6ab3cfa19de5,epcam,df,unknown,,CHANNEL04,epcam:CHANNEL04,train,images/epcam/DF04.tif,DF04.tif
+5dce0b98a2a9,epcam,df,MM231,,MM231_EPCAM_CHANNEL_01,epcam:MM231_EPCAM_CHANNEL_01,val,images/epcam/MM231_EpCAM_DF_01.tif,MM231_EpCAM_DF_01.tif
+c1f249630eb3,epcam,df,MM231,,MM231_EPCAM_CHANNEL_02,epcam:MM231_EPCAM_CHANNEL_02,val,images/epcam/MM231_EpCAM_DF_02.tif,MM231_EpCAM_DF_02.tif
+130f5d723797,epcam,df,MM231,,MM231_EPCAM_CHANNEL_03,epcam:MM231_EPCAM_CHANNEL_03,train,images/epcam/MM231_EpCAM_DF_03.tif,MM231_EpCAM_DF_03.tif
+a8d60f3c94a2,epcam,df,MM231,,MM231_EPCAM_CHANNEL_04,epcam:MM231_EPCAM_CHANNEL_04,test,images/epcam/MM231_EpCAM_DF_04.tif,MM231_EpCAM_DF_04.tif
+8c50c8135d17,epcam,df,MM231,,MM231_EPCAM_CHANNEL_05,epcam:MM231_EPCAM_CHANNEL_05,train,images/epcam/MM231_EpCAM_DF_05.tif,MM231_EpCAM_DF_05.tif
+3926f3d336ac,epcam,raman,MM231,,MM231_EPCAM_CHANNEL_01,epcam:MM231_EPCAM_CHANNEL_01,val,images/epcam/MM231_EpCAM_Raman_01.tif,MM231_EpCAM_Raman_01.tif
+b66d005850be,epcam,raman,MM231,,MM231_EPCAM_CHANNEL_02,epcam:MM231_EPCAM_CHANNEL_02,val,images/epcam/MM231_EpCAM_Raman_02.tif,MM231_EpCAM_Raman_02.tif
+256a51b14990,epcam,raman,MM231,,MM231_EPCAM_CHANNEL_03,epcam:MM231_EPCAM_CHANNEL_03,train,images/epcam/MM231_EpCAM_Raman_03.tif,MM231_EpCAM_Raman_03.tif
+3bd5b3772b89,epcam,raman,MM231,,MM231_EPCAM_CHANNEL_04,epcam:MM231_EPCAM_CHANNEL_04,test,images/epcam/MM231_EpCAM_Raman_04.tif,MM231_EpCAM_Raman_04.tif
+5365cabbd02b,epcam,raman,MM231,,MM231_EPCAM_CHANNEL_05,epcam:MM231_EPCAM_CHANNEL_05,train,images/epcam/MM231_EpCAM_Raman_05.tif,MM231_EpCAM_Raman_05.tif
+9ae246c29cad,epcam,raman,unknown,,CHANNEL01 (2),epcam:CHANNEL01 (2),val,images/epcam/R01 (2).tif,R01 (2).tif
+b9a4d6de0390,epcam,raman,unknown,,CHANNEL01 (3),epcam:CHANNEL01 (3),train,images/epcam/R01 (3).tif,R01 (3).tif
+2b2d4e405482,epcam,raman,unknown,,CHANNEL01 (4),epcam:CHANNEL01 (4),train,images/epcam/R01 (4).tif,R01 (4).tif
+7c60699fcddf,epcam,raman,unknown,,CHANNEL01,epcam:CHANNEL01,test,images/epcam/R01.tif,R01.tif
+852701630d87,epcam,raman,unknown,,CHANNEL02 (2),epcam:CHANNEL02 (2),train,images/epcam/R02 (2).tif,R02 (2).tif
+60b08caa9f5a,epcam,raman,unknown,,CHANNEL02 (3),epcam:CHANNEL02 (3),train,images/epcam/R02 (3).tif,R02 (3).tif
+6db6aa03308c,epcam,raman,unknown,,CHANNEL02 (4),epcam:CHANNEL02 (4),train,images/epcam/R02 (4).tif,R02 (4).tif
+277f132e781c,epcam,raman,unknown,,CHANNEL02,epcam:CHANNEL02,train,images/epcam/R02.tif,R02.tif
+f5a32fbd73d3,epcam,raman,unknown,,CHANNEL03 (2),epcam:CHANNEL03 (2),val,images/epcam/R03 (2).tif,R03 (2).tif
+be2b3e418cd3,epcam,raman,unknown,,CHANNEL03 (3),epcam:CHANNEL03 (3),val,images/epcam/R03 (3).tif,R03 (3).tif
+e43ae71ffb78,epcam,raman,unknown,,CHANNEL03 (4),epcam:CHANNEL03 (4),train,images/epcam/R03 (4).tif,R03 (4).tif
+b0701acf7002,epcam,raman,unknown,,CHANNEL03,epcam:CHANNEL03,train,images/epcam/R03.tif,R03.tif
+1ec8ecf94e05,epcam,raman,unknown,,CHANNEL04 (2),epcam:CHANNEL04 (2),train,images/epcam/R04 (2).tif,R04 (2).tif
+bcc7eb77a87d,epcam,raman,unknown,,CHANNEL04,epcam:CHANNEL04,train,images/epcam/R04.tif,R04.tif
+d70e330f5e4a,epcam,df,SKBR3,,SKBR3_EPCAM_CHANNEL_01 (2),epcam:SKBR3_EPCAM_CHANNEL_01 (2),train,images/epcam/SKBR3_EpCAM_DF_01 (2).tif,SKBR3_EpCAM_DF_01 (2).tif
+e23dbd3a1c49,epcam,df,SKBR3,,SKBR3_EPCAM_CHANNEL_01,epcam:SKBR3_EPCAM_CHANNEL_01,train,images/epcam/SKBR3_EpCAM_DF_01.tif,SKBR3_EpCAM_DF_01.tif
+ae398dc3635d,epcam,df,SKBR3,,SKBR3_EPCAM_CHANNEL_02 (2),epcam:SKBR3_EPCAM_CHANNEL_02 (2),test,images/epcam/SKBR3_EpCAM_DF_02 (2).tif,SKBR3_EpCAM_DF_02 (2).tif
+0e56bb5113db,epcam,df,SKBR3,,SKBR3_EPCAM_CHANNEL_02,epcam:SKBR3_EPCAM_CHANNEL_02,test,images/epcam/SKBR3_EpCAM_DF_02.tif,SKBR3_EpCAM_DF_02.tif
+91f1d44f698a,epcam,df,SKBR3,,SKBR3_EPCAM_CHANNEL_03 (2),epcam:SKBR3_EPCAM_CHANNEL_03 (2),train,images/epcam/SKBR3_EpCAM_DF_03 (2).tif,SKBR3_EpCAM_DF_03 (2).tif
+88255f2aa7ca,epcam,df,SKBR3,,SKBR3_EPCAM_CHANNEL_03,epcam:SKBR3_EPCAM_CHANNEL_03,test,images/epcam/SKBR3_EpCAM_DF_03.tif,SKBR3_EpCAM_DF_03.tif
+2d8088de03a5,epcam,df,SKBR3,,SKBR3_EPCAM_CHANNEL_04 (2),epcam:SKBR3_EPCAM_CHANNEL_04 (2),train,images/epcam/SKBR3_EpCAM_DF_04 (2).tif,SKBR3_EpCAM_DF_04 (2).tif
+8aecbfd32c8c,epcam,df,SKBR3,,SKBR3_EPCAM_CHANNEL_04,epcam:SKBR3_EPCAM_CHANNEL_04,val,images/epcam/SKBR3_EpCAM_DF_04.tif,SKBR3_EpCAM_DF_04.tif
+212c100dbe49,epcam,df,SKBR3,,SKBR3_EPCAM_CHANNEL_05 (2),epcam:SKBR3_EPCAM_CHANNEL_05 (2),train,images/epcam/SKBR3_EpCAM_DF_05 (2).tif,SKBR3_EpCAM_DF_05 (2).tif
+7ed58af1b0d2,epcam,df,SKBR3,,SKBR3_EPCAM_CHANNEL_05,epcam:SKBR3_EPCAM_CHANNEL_05,train,images/epcam/SKBR3_EpCAM_DF_05.tif,SKBR3_EpCAM_DF_05.tif
+29433d10af60,epcam,df,SKBR3,,SKBR3_EPCAM_CHANNEL_06,epcam:SKBR3_EPCAM_CHANNEL_06,train,images/epcam/SKBR3_EpCAM_DF_06.tif,SKBR3_EpCAM_DF_06.tif
+d4d7f4f1ee0b,epcam,raman,SKBR3,,SKBR3_EPCAM_CHANNEL_01 (2),epcam:SKBR3_EPCAM_CHANNEL_01 (2),train,images/epcam/SKBR3_EpCAM_Raman_01 (2).tif,SKBR3_EpCAM_Raman_01 (2).tif
+525c6fed1980,epcam,raman,SKBR3,,SKBR3_EPCAM_CHANNEL_01,epcam:SKBR3_EPCAM_CHANNEL_01,train,images/epcam/SKBR3_EpCAM_Raman_01.tif,SKBR3_EpCAM_Raman_01.tif
+b96e9895cc79,epcam,raman,SKBR3,,SKBR3_EPCAM_CHANNEL_02 (2),epcam:SKBR3_EPCAM_CHANNEL_02 (2),test,images/epcam/SKBR3_EpCAM_Raman_02 (2).tif,SKBR3_EpCAM_Raman_02 (2).tif
+bd788a206ee5,epcam,raman,SKBR3,,SKBR3_EPCAM_CHANNEL_02,epcam:SKBR3_EPCAM_CHANNEL_02,test,images/epcam/SKBR3_EpCAM_Raman_02.tif,SKBR3_EpCAM_Raman_02.tif
+42578b4ef9ae,epcam,raman,SKBR3,,SKBR3_EPCAM_CHANNEL_03 (2),epcam:SKBR3_EPCAM_CHANNEL_03 (2),train,images/epcam/SKBR3_EpCAM_Raman_03 (2).tif,SKBR3_EpCAM_Raman_03 (2).tif
+ddd4e4b9c69d,epcam,raman,SKBR3,,SKBR3_EPCAM_CHANNEL_03,epcam:SKBR3_EPCAM_CHANNEL_03,test,images/epcam/SKBR3_EpCAM_Raman_03.tif,SKBR3_EpCAM_Raman_03.tif
+e810e50337d1,epcam,raman,SKBR3,,SKBR3_EPCAM_CHANNEL_04 (2),epcam:SKBR3_EPCAM_CHANNEL_04 (2),train,images/epcam/SKBR3_EpCAM_Raman_04 (2).tif,SKBR3_EpCAM_Raman_04 (2).tif
+1bcaccc5bd87,epcam,raman,SKBR3,,SKBR3_EPCAM_CHANNEL_04,epcam:SKBR3_EPCAM_CHANNEL_04,val,images/epcam/SKBR3_EpCAM_Raman_04.tif,SKBR3_EpCAM_Raman_04.tif
+091465994eff,epcam,raman,SKBR3,,SKBR3_EPCAM_CHANNEL_05 (2),epcam:SKBR3_EPCAM_CHANNEL_05 (2),train,images/epcam/SKBR3_EpCAM_Raman_05 (2).tif,SKBR3_EpCAM_Raman_05 (2).tif
+e3c68f76686c,epcam,raman,SKBR3,,SKBR3_EPCAM_CHANNEL_05,epcam:SKBR3_EPCAM_CHANNEL_05,train,images/epcam/SKBR3_EpCAM_Raman_05.tif,SKBR3_EpCAM_Raman_05.tif
+56890ad3c40f,epcam,raman,SKBR3,,SKBR3_EPCAM_CHANNEL_06,epcam:SKBR3_EPCAM_CHANNEL_06,train,images/epcam/SKBR3_EpCAM_Raman_06.tif,SKBR3_EpCAM_Raman_06.tif
+0ba5e74e9857,her2,df,unknown,,CHANNEL01 (2),her2:CHANNEL01 (2),val,images/her2/DF01 (2).tif,DF01 (2).tif
+27d926aa931c,her2,df,unknown,,CHANNEL01 (3),her2:CHANNEL01 (3),train,images/her2/DF01 (3).tif,DF01 (3).tif
+d9efb86d8352,her2,df,unknown,,CHANNEL01 (4),her2:CHANNEL01 (4),train,images/her2/DF01 (4).tif,DF01 (4).tif
+2e95ef2329c4,her2,df,unknown,,CHANNEL01 (5),her2:CHANNEL01 (5),train,images/her2/DF01 (5).tif,DF01 (5).tif
+e0dc6eaf3b02,her2,df,unknown,,CHANNEL01,her2:CHANNEL01,val,images/her2/DF01.tif,DF01.tif
+415423fd9ea4,her2,df,unknown,,CHANNEL02 (2),her2:CHANNEL02 (2),val,images/her2/DF02 (2).tif,DF02 (2).tif
+4de7404fecd9,her2,df,unknown,,CHANNEL02 (3),her2:CHANNEL02 (3),train,images/her2/DF02 (3).tif,DF02 (3).tif
+5f63e4c5b1ab,her2,df,unknown,,CHANNEL02 (4),her2:CHANNEL02 (4),train,images/her2/DF02 (4).tif,DF02 (4).tif
+3d347e2be146,her2,df,unknown,,CHANNEL02 (5),her2:CHANNEL02 (5),train,images/her2/DF02 (5).tif,DF02 (5).tif
+78288103c11f,her2,df,unknown,,CHANNEL02,her2:CHANNEL02,train,images/her2/DF02.tif,DF02.tif
+568e6d8c0786,her2,df,unknown,,CHANNEL03 (2),her2:CHANNEL03 (2),train,images/her2/DF03 (2).tif,DF03 (2).tif
+1a58de93a765,her2,df,unknown,,CHANNEL03 (3),her2:CHANNEL03 (3),train,images/her2/DF03 (3).tif,DF03 (3).tif
+ddb052ad0363,her2,df,unknown,,CHANNEL03 (4),her2:CHANNEL03 (4),train,images/her2/DF03 (4).tif,DF03 (4).tif
+ca6298309381,her2,df,unknown,,CHANNEL03 (5),her2:CHANNEL03 (5),test,images/her2/DF03 (5).tif,DF03 (5).tif
+a04cfb46181e,her2,df,unknown,,CHANNEL03,her2:CHANNEL03,train,images/her2/DF03.tif,DF03.tif
+1b0ede0ccbb8,her2,df,unknown,,CHANNEL04 (2),her2:CHANNEL04 (2),val,images/her2/DF04 (2).tif,DF04 (2).tif
+02d5916738e6,her2,df,unknown,,CHANNEL04,her2:CHANNEL04,train,images/her2/DF04.tif,DF04.tif
+c5069c39f3af,her2,df,MM231,,MM231_HER2_CHANNEL_01,her2:MM231_HER2_CHANNEL_01,train,images/her2/MM231_HER2_DF_01.tif,MM231_HER2_DF_01.tif
+435d17b9ad88,her2,df,MM231,,MM231_HER2_CHANNEL_02,her2:MM231_HER2_CHANNEL_02,train,images/her2/MM231_HER2_DF_02.tif,MM231_HER2_DF_02.tif
+b3c6c2bf9fe9,her2,df,MM231,,MM231_HER2_CHANNEL_03,her2:MM231_HER2_CHANNEL_03,test,images/her2/MM231_HER2_DF_03.tif,MM231_HER2_DF_03.tif
+b0f64dc4dc46,her2,df,MM231,,MM231_HER2_CHANNEL_04,her2:MM231_HER2_CHANNEL_04,train,images/her2/MM231_HER2_DF_04.tif,MM231_HER2_DF_04.tif
+03d51364e910,her2,df,MM231,,MM231_HER2_CHANNEL_05,her2:MM231_HER2_CHANNEL_05,train,images/her2/MM231_HER2_DF_05.tif,MM231_HER2_DF_05.tif
+90ee8bccaecf,her2,raman,MM231,,MM231_HER2_CHANNEL_01,her2:MM231_HER2_CHANNEL_01,train,images/her2/MM231_HER2_Raman_01.tif,MM231_HER2_Raman_01.tif
+9ed7a5b3851f,her2,raman,MM231,,MM231_HER2_CHANNEL_02,her2:MM231_HER2_CHANNEL_02,train,images/her2/MM231_HER2_Raman_02.tif,MM231_HER2_Raman_02.tif
+f804c061ea17,her2,raman,MM231,,MM231_HER2_CHANNEL_03,her2:MM231_HER2_CHANNEL_03,test,images/her2/MM231_HER2_Raman_03.tif,MM231_HER2_Raman_03.tif
+56914784bc51,her2,raman,MM231,,MM231_HER2_CHANNEL_04,her2:MM231_HER2_CHANNEL_04,train,images/her2/MM231_HER2_Raman_04.tif,MM231_HER2_Raman_04.tif
+fff6d5533968,her2,raman,MM231,,MM231_HER2_CHANNEL_05,her2:MM231_HER2_CHANNEL_05,train,images/her2/MM231_HER2_Raman_05.tif,MM231_HER2_Raman_05.tif
+7250ce85387f,her2,raman,unknown,,CHANNEL01 (2),her2:CHANNEL01 (2),val,images/her2/R01 (2).tif,R01 (2).tif
+22b78f55f238,her2,raman,unknown,,CHANNEL01 (3),her2:CHANNEL01 (3),train,images/her2/R01 (3).tif,R01 (3).tif
+6cfbfb1b0a52,her2,raman,unknown,,CHANNEL01 (4),her2:CHANNEL01 (4),train,images/her2/R01 (4).tif,R01 (4).tif
+4bcb4d504080,her2,raman,unknown,,CHANNEL01 (5),her2:CHANNEL01 (5),train,images/her2/R01 (5).tif,R01 (5).tif
+36029f01c36f,her2,raman,unknown,,CHANNEL01,her2:CHANNEL01,val,images/her2/R01.tif,R01.tif
+c6ad6b38561a,her2,raman,unknown,,CHANNEL02 (2),her2:CHANNEL02 (2),val,images/her2/R02 (2).tif,R02 (2).tif
+652e5593a893,her2,raman,unknown,,CHANNEL02 (3),her2:CHANNEL02 (3),train,images/her2/R02 (3).tif,R02 (3).tif
+6b0eac05d38a,her2,raman,unknown,,CHANNEL02 (4),her2:CHANNEL02 (4),train,images/her2/R02 (4).tif,R02 (4).tif
+eef452bb4001,her2,raman,unknown,,CHANNEL02 (5),her2:CHANNEL02 (5),train,images/her2/R02 (5).tif,R02 (5).tif
+254049fd875f,her2,raman,unknown,,CHANNEL02,her2:CHANNEL02,train,images/her2/R02.tif,R02.tif
+d1718980c9df,her2,raman,unknown,,CHANNEL03 (2),her2:CHANNEL03 (2),train,images/her2/R03 (2).tif,R03 (2).tif
+6468a01c88d1,her2,raman,unknown,,CHANNEL03 (3),her2:CHANNEL03 (3),train,images/her2/R03 (3).tif,R03 (3).tif
+60353058a4dc,her2,raman,unknown,,CHANNEL03 (4),her2:CHANNEL03 (4),train,images/her2/R03 (4).tif,R03 (4).tif
+5f16aa1f4b3a,her2,raman,unknown,,CHANNEL03 (5),her2:CHANNEL03 (5),test,images/her2/R03 (5).tif,R03 (5).tif
+e5689912c3a2,her2,raman,unknown,,CHANNEL03,her2:CHANNEL03,train,images/her2/R03.tif,R03.tif
+1e798c76b347,her2,raman,unknown,,CHANNEL04 (2),her2:CHANNEL04 (2),val,images/her2/R04 (2).tif,R04 (2).tif
+84f7ccb87e6a,her2,raman,unknown,,CHANNEL04,her2:CHANNEL04,train,images/her2/R04.tif,R04.tif
+72768c6f793d,her2,df,SKBR3,0.5nM,SKBR3_HER2_CHANNEL_0.5NM_01,her2:SKBR3_HER2_CHANNEL_0.5NM_01,train,images/her2/SKBR3_HER2_DF_0.5nM_01.tif,SKBR3_HER2_DF_0.5nM_01.tif
+3d0338ed3fdd,her2,df,SKBR3,0.5nM,SKBR3_HER2_CHANNEL_0.5NM_02,her2:SKBR3_HER2_CHANNEL_0.5NM_02,val,images/her2/SKBR3_HER2_DF_0.5nM_02.tif,SKBR3_HER2_DF_0.5nM_02.tif
+7882151f575b,her2,df,SKBR3,0.5nM,SKBR3_HER2_CHANNEL_0.5NM_03,her2:SKBR3_HER2_CHANNEL_0.5NM_03,train,images/her2/SKBR3_HER2_DF_0.5nM_03.tif,SKBR3_HER2_DF_0.5nM_03.tif
+ccb6e8918255,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_01 (2),her2:SKBR3_HER2_CHANNEL_01 (2),test,images/her2/SKBR3_HER2_DF_01 (2).tif,SKBR3_HER2_DF_01 (2).tif
+976da6a039d6,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_01 (3),her2:SKBR3_HER2_CHANNEL_01 (3),train,images/her2/SKBR3_HER2_DF_01 (3).tif,SKBR3_HER2_DF_01 (3).tif
+44bd7e6fc8b2,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_01,her2:SKBR3_HER2_CHANNEL_01,train,images/her2/SKBR3_HER2_DF_01.tif,SKBR3_HER2_DF_01.tif
+aa5e6d2e8402,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_02 (2),her2:SKBR3_HER2_CHANNEL_02 (2),train,images/her2/SKBR3_HER2_DF_02 (2).tif,SKBR3_HER2_DF_02 (2).tif
+2633f3a8f904,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_02 (3),her2:SKBR3_HER2_CHANNEL_02 (3),train,images/her2/SKBR3_HER2_DF_02 (3).tif,SKBR3_HER2_DF_02 (3).tif
+3b295067c0a4,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_02,her2:SKBR3_HER2_CHANNEL_02,train,images/her2/SKBR3_HER2_DF_02.tif,SKBR3_HER2_DF_02.tif
+6089f73ee619,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_03 (2),her2:SKBR3_HER2_CHANNEL_03 (2),train,images/her2/SKBR3_HER2_DF_03 (2).tif,SKBR3_HER2_DF_03 (2).tif
+8e0f2cb0ed39,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_03 (3),her2:SKBR3_HER2_CHANNEL_03 (3),train,images/her2/SKBR3_HER2_DF_03 (3).tif,SKBR3_HER2_DF_03 (3).tif
+2ee878d45319,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_03,her2:SKBR3_HER2_CHANNEL_03,train,images/her2/SKBR3_HER2_DF_03.tif,SKBR3_HER2_DF_03.tif
+33c735a90dc7,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_04 (2),her2:SKBR3_HER2_CHANNEL_04 (2),train,images/her2/SKBR3_HER2_DF_04 (2).tif,SKBR3_HER2_DF_04 (2).tif
+537e64ddf022,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_04 (3),her2:SKBR3_HER2_CHANNEL_04 (3),train,images/her2/SKBR3_HER2_DF_04 (3).tif,SKBR3_HER2_DF_04 (3).tif
+0e11e85a47e1,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_04,her2:SKBR3_HER2_CHANNEL_04,train,images/her2/SKBR3_HER2_DF_04.tif,SKBR3_HER2_DF_04.tif
+b7823261ff82,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_05 (2),her2:SKBR3_HER2_CHANNEL_05 (2),train,images/her2/SKBR3_HER2_DF_05 (2).tif,SKBR3_HER2_DF_05 (2).tif
+a09ef531906e,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_05 (3),her2:SKBR3_HER2_CHANNEL_05 (3),test,images/her2/SKBR3_HER2_DF_05 (3).tif,SKBR3_HER2_DF_05 (3).tif
+9bba0b8e6a16,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_05,her2:SKBR3_HER2_CHANNEL_05,train,images/her2/SKBR3_HER2_DF_05.tif,SKBR3_HER2_DF_05.tif
+6f55c3a39323,her2,df,SKBR3,,SKBR3_HER2_CHANNEL_06,her2:SKBR3_HER2_CHANNEL_06,train,images/her2/SKBR3_HER2_DF_06.tif,SKBR3_HER2_DF_06.tif
+0b540d6d5aa4,her2,raman,SKBR3,0.5nM,SKBR3_HER2_CHANNEL_0.5NM_01,her2:SKBR3_HER2_CHANNEL_0.5NM_01,train,images/her2/SKBR3_HER2_Raman_0.5nM_01.tif,SKBR3_HER2_Raman_0.5nM_01.tif
+ade4a5e98b1b,her2,raman,SKBR3,0.5nM,SKBR3_HER2_CHANNEL_0.5NM_02,her2:SKBR3_HER2_CHANNEL_0.5NM_02,val,images/her2/SKBR3_HER2_Raman_0.5nM_02.tif,SKBR3_HER2_Raman_0.5nM_02.tif
+da5fcc1cdb9a,her2,raman,SKBR3,0.5nM,SKBR3_HER2_CHANNEL_0.5NM_03,her2:SKBR3_HER2_CHANNEL_0.5NM_03,train,images/her2/SKBR3_HER2_Raman_0.5nM_03.tif,SKBR3_HER2_Raman_0.5nM_03.tif
+5c5e7c1f283d,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_01 (2),her2:SKBR3_HER2_CHANNEL_01 (2),test,images/her2/SKBR3_HER2_Raman_01 (2).tif,SKBR3_HER2_Raman_01 (2).tif
+7e514a93cdcb,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_01 (3),her2:SKBR3_HER2_CHANNEL_01 (3),train,images/her2/SKBR3_HER2_Raman_01 (3).tif,SKBR3_HER2_Raman_01 (3).tif
+e3d96e50cba3,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_01,her2:SKBR3_HER2_CHANNEL_01,train,images/her2/SKBR3_HER2_Raman_01.tif,SKBR3_HER2_Raman_01.tif
+3cc0c6fada10,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_02 (2),her2:SKBR3_HER2_CHANNEL_02 (2),train,images/her2/SKBR3_HER2_Raman_02 (2).tif,SKBR3_HER2_Raman_02 (2).tif
+8261ebb699b5,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_02 (3),her2:SKBR3_HER2_CHANNEL_02 (3),train,images/her2/SKBR3_HER2_Raman_02 (3).tif,SKBR3_HER2_Raman_02 (3).tif
+7cdfb209c09e,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_02,her2:SKBR3_HER2_CHANNEL_02,train,images/her2/SKBR3_HER2_Raman_02.tif,SKBR3_HER2_Raman_02.tif
+aee51127de32,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_03 (2),her2:SKBR3_HER2_CHANNEL_03 (2),train,images/her2/SKBR3_HER2_Raman_03 (2).tif,SKBR3_HER2_Raman_03 (2).tif
+6184dcadccd9,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_03 (3),her2:SKBR3_HER2_CHANNEL_03 (3),train,images/her2/SKBR3_HER2_Raman_03 (3).tif,SKBR3_HER2_Raman_03 (3).tif
+d051e3a5d735,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_03,her2:SKBR3_HER2_CHANNEL_03,train,images/her2/SKBR3_HER2_Raman_03.tif,SKBR3_HER2_Raman_03.tif
+2007c2789984,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_04 (2),her2:SKBR3_HER2_CHANNEL_04 (2),train,images/her2/SKBR3_HER2_Raman_04 (2).tif,SKBR3_HER2_Raman_04 (2).tif
+78dec142714a,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_04 (3),her2:SKBR3_HER2_CHANNEL_04 (3),train,images/her2/SKBR3_HER2_Raman_04 (3).tif,SKBR3_HER2_Raman_04 (3).tif
+5cf45ffb07a0,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_04,her2:SKBR3_HER2_CHANNEL_04,train,images/her2/SKBR3_HER2_Raman_04.tif,SKBR3_HER2_Raman_04.tif
+99655461d9da,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_05 (2),her2:SKBR3_HER2_CHANNEL_05 (2),train,images/her2/SKBR3_HER2_Raman_05 (2).tif,SKBR3_HER2_Raman_05 (2).tif
+896680b6420a,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_05 (3),her2:SKBR3_HER2_CHANNEL_05 (3),test,images/her2/SKBR3_HER2_Raman_05 (3).tif,SKBR3_HER2_Raman_05 (3).tif
+65ab046a5d55,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_05,her2:SKBR3_HER2_CHANNEL_05,train,images/her2/SKBR3_HER2_Raman_05.tif,SKBR3_HER2_Raman_05.tif
+d1dea50ef3d5,her2,raman,SKBR3,,SKBR3_HER2_CHANNEL_06,her2:SKBR3_HER2_CHANNEL_06,train,images/her2/SKBR3_HER2_Raman_06.tif,SKBR3_HER2_Raman_06.tif

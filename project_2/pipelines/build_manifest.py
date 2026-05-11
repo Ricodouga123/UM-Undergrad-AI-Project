@@ -73,7 +73,6 @@ def infer_concentration(filename: str) -> str:
 
 def normalize_group_name(stem: str) -> str:
     group = stem
-    group = re.sub(r"\s*\(\d+\)$", "", group)
     group = re.sub(r"_DF_", "_CHANNEL_", group, flags=re.IGNORECASE)
     group = re.sub(r"_RAMAN_", "_CHANNEL_", group, flags=re.IGNORECASE)
     group = re.sub(r"^DF", "CHANNEL", group, flags=re.IGNORECASE)
@@ -103,11 +102,10 @@ def build_rows() -> List[ManifestRow]:
     for path in iter_tiffs():
         biomarker = path.parent.name.lower()
         filename = path.name
-        stem = path.stem
         channel = infer_channel(filename)
         cell_line = infer_cell_line(filename)
         concentration = infer_concentration(filename)
-        sample_group = normalize_group_name(stem)
+        sample_group = normalize_group_name(path.stem)
         pair_key = f"{biomarker}:{sample_group}"
         image_id = hashlib.md5(str(path.relative_to(PROJECT_DIR)).encode("utf-8")).hexdigest()[:12]
         split = assign_split(pair_key)

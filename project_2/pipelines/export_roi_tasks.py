@@ -38,7 +38,7 @@ FIELDNAMES = [
 def load_manifest_rows():
     if not MANIFEST_CSV.exists():
         raise SystemExit(
-            "Manifest not found. Run `python project_2/build_manifest.py` first."
+            "Manifest not found. Run `python project_2/start_annotation.py` or rebuild it first."
         )
 
     with MANIFEST_CSV.open("r", encoding="utf-8", newline="") as handle:
