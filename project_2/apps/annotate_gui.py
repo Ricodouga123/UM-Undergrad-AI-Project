@@ -149,7 +149,21 @@ class AnnotatorApp:
             activeforeground="white",
         ).pack(side="left", padx=(10, 4))
         tk.Button(filter_row, text="Apply Filters", command=self.apply_filters, width=12).pack(side="left", padx=6)
-        tk.Button(filter_row, text="Reset", command=self.reset_filters, width=8).pack(side="left", padx=4)
+        tk.Button(filter_row, text="Reset Filters", command=self.reset_filters, width=12).pack(side="left", padx=4)
+        self.top_positive_button = tk.Button(
+            filter_row, text="Positive [1]", command=lambda: self.set_active_label("positive"), width=12, fg="white"
+        )
+        self.top_positive_button.pack(side="left", padx=(12, 4))
+        self.top_negative_button = tk.Button(
+            filter_row, text="Negative [2]", command=lambda: self.set_active_label("negative"), width=12, fg="white"
+        )
+        self.top_negative_button.pack(side="left", padx=4)
+        self.top_uncertain_button = tk.Button(
+            filter_row, text="Uncertain [3]", command=lambda: self.set_active_label("uncertain"), width=12, fg="white"
+        )
+        self.top_uncertain_button.pack(side="left", padx=4)
+        tk.Button(filter_row, text="Reset Image", command=self.reset_current_image_annotations, width=12).pack(side="left", padx=(12, 4))
+        tk.Button(filter_row, text="Reset All", command=self.reset_all_annotations, width=12).pack(side="left", padx=4)
 
         display_row = tk.Frame(root, bg="#1f2329")
         display_row.pack(fill="x", padx=12, pady=(0, 8))
@@ -200,12 +214,11 @@ class AnnotatorApp:
         self.canvas.bind("<ButtonRelease-1>", self.on_release)
         self.canvas.bind("<Button-3>", self.on_analyze_click)
 
-        controls = tk.Frame(root, bg="#1f2329")
-        controls.pack(fill="x", padx=12, pady=(4, 8))
-        tk.Button(controls, text="Previous", command=self.previous_image, width=12).pack(side="left", padx=4)
-        tk.Button(controls, text="Next", command=self.next_image, width=12).pack(side="left", padx=4)
-        tk.Button(controls, text="Delete Last ROI", command=self.delete_last_roi, width=12).pack(side="left", padx=4)
-        tk.Button(controls, text="Save CSV", command=self.save_csv, width=12).pack(side="left", padx=4)
+        nav_controls = tk.Frame(root, bg="#1f2329")
+        nav_controls.pack(fill="x", padx=12, pady=(4, 6))
+        tk.Button(nav_controls, text="Previous", command=self.previous_image, width=12).pack(side="left", padx=4)
+        tk.Button(nav_controls, text="Next", command=self.next_image, width=12).pack(side="left", padx=4)
+        tk.Button(nav_controls, text="Save CSV", command=self.save_csv, width=12).pack(side="left", padx=4)
 
         label_controls = tk.Frame(root, bg="#1f2329")
         label_controls.pack(fill="x", padx=12, pady=(0, 6))
@@ -221,6 +234,12 @@ class AnnotatorApp:
             label_controls, text="Uncertain [3]", command=lambda: self.set_active_label("uncertain"), width=14, fg="white"
         )
         self.uncertain_button.pack(side="left", padx=4)
+
+        annotation_controls = tk.Frame(root, bg="#1f2329")
+        annotation_controls.pack(fill="x", padx=12, pady=(0, 6))
+        tk.Button(annotation_controls, text="Delete Last ROI", command=self.delete_last_roi, width=14).pack(side="left", padx=4)
+        tk.Button(annotation_controls, text="Reset Image", command=self.reset_current_image_annotations, width=14).pack(side="left", padx=4)
+        tk.Button(annotation_controls, text="Reset All", command=self.reset_all_annotations, width=14).pack(side="left", padx=4)
 
         notes_row = tk.Frame(root, bg="#1f2329")
         notes_row.pack(fill="x", padx=12, pady=(0, 8))
@@ -343,6 +362,18 @@ class AnnotatorApp:
     def current_image_id(self):
         return str(self.current_image_row()["image_id"])
 
+    def build_blank_row(self, image_row):
+        blank_row = {field: "" for field in self.field_order}
+        for key in ["image_id", "split", "biomarker", "channel", "relative_path"]:
+            if key in blank_row:
+                blank_row[key] = image_row.get(key, "")
+        blank_row["task_id"] = f"{blank_row['image_id']}_000"
+        return blank_row
+
+    def rebuild_blank_annotations(self):
+        rows = [self.build_blank_row(row) for row in self.all_image_frame.to_dict("records")]
+        return self.pd.DataFrame(rows, columns=self.field_order)
+
     def image_annotations(self):
         frame = self.full_frame[self.full_frame["image_id"].astype(str) == self.current_image_id()].copy()
         required = ["roi_x", "roi_y", "roi_width", "roi_height"]
@@ -352,15 +383,16 @@ class AnnotatorApp:
 
     def update_label_buttons(self):
         button_styles = {
-            "positive": (self.positive_button, "#1f8b4c"),
-            "negative": (self.negative_button, "#9c2f2f"),
-            "uncertain": (self.uncertain_button, "#9a6d10"),
+            "positive": ([self.positive_button, self.top_positive_button], "#1f8b4c"),
+            "negative": ([self.negative_button, self.top_negative_button], "#9c2f2f"),
+            "uncertain": ([self.uncertain_button, self.top_uncertain_button], "#9a6d10"),
         }
-        for label, (button, active_color) in button_styles.items():
-            if label == self.active_label:
-                button.configure(bg=active_color, relief="sunken")
-            else:
-                button.configure(bg="#4b5563", relief="raised")
+        for label, (buttons, active_color) in button_styles.items():
+            for button in buttons:
+                if label == self.active_label:
+                    button.configure(bg=active_color, relief="sunken")
+                else:
+                    button.configure(bg="#4b5563", relief="raised")
 
     def set_active_label(self, label):
         self.active_label = label
@@ -678,6 +710,38 @@ class AnnotatorApp:
         self.full_frame = self.full_frame[self.full_frame["task_id"] != last_task_id].reset_index(drop=True)
         self.status_var.set(f"Deleted ROI {last_task_id}.")
         self.load_current_image()
+
+    def reset_current_image_annotations(self):
+        image_row = self.current_image_row().to_dict()
+        image_id = str(image_row["image_id"])
+        if not messagebox.askyesno(
+            "Reset current image",
+            "Remove all saved ROIs for this image and restore its blank starter row?",
+        ):
+            return
+        kept = self.full_frame[self.full_frame["image_id"].astype(str) != image_id].copy()
+        restored = self.pd.DataFrame([self.build_blank_row(image_row)], columns=self.field_order)
+        self.full_frame = self.pd.concat([kept, restored], ignore_index=True)
+        self.pending_box = None
+        self.pending_roi = None
+        self.note_var.set("")
+        self.status_var.set("Cleared all annotations on the current image.")
+        self.load_current_image()
+
+    def reset_all_annotations(self):
+        if not messagebox.askyesno(
+            "Reset all annotations",
+            "This will remove all saved ROIs and pair assignments for every image. Continue?",
+        ):
+            return
+        self.full_frame = self.rebuild_blank_annotations()
+        self.pair_overrides = {}
+        self.pending_box = None
+        self.pending_roi = None
+        self.note_var.set("")
+        self.save_csv()
+        self.apply_filters(initial=True)
+        self.status_var.set("Reset all annotations and pair assignments.")
 
     def save_csv(self):
         self.csv_path.parent.mkdir(parents=True, exist_ok=True)
